@@ -1,12 +1,13 @@
-let next = document.querySelector('.next')
-let prev = document.querySelector('.prev')
+// Add event listeners to all cards
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        const img = card.querySelector('img');
+        img.style.transform = 'scale(1.1)';
+    });
 
-next.addEventListener('click', function(){
-    let items = document.querySelectorAll('.item')
-    document.querySelector('.slide').appendChild(items[0])
-})
-
-prev.addEventListener('click', function(){
-    let items = document.querySelectorAll('.item')
-    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
-})
+    card.addEventListener('mouseout', () => {
+        const img = card.querySelector('img');
+        img.style.transform = 'scale(1)';
+    });
+});
